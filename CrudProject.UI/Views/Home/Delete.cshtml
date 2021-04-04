@@ -1,0 +1,31 @@
+﻿@model CrudProject.Api.Models.Joke
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h5>Are you sure you want to delete this?</h5>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.JokeName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.JokeName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ratings)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ratings)
+        </dd>
+    </dl>
+    
+    <form asp-action="DeleteConfirm" asp-route-id="@Model.JokeId">
+        <input type="hidden" asp-for="JokeId" />
+        <input type="submit" value="Delete"   class="btn btn-sm btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+

@@ -1,0 +1,33 @@
+﻿@model CrudProject.Api.Models.Joke
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="JokeName" class="control-label"></label>
+                <input asp-for="JokeName" class="form-control" />
+                <span asp-validation-for="JokeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ratings" class="control-label"></label>
+                <input asp-for="Ratings" class="form-control"  type="range" min="0" max="10"/>
+                <span asp-validation-for="Ratings" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-sm btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
